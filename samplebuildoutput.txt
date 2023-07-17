@@ -1,0 +1,96 @@
+spotify-search/build (main) $ cmake ..
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Warning (dev) at spotify-json/vendor/double-conversion/CMakeLists.txt:39 (option):
+  Policy CMP0077 is not set: option() honors normal variables.  Run "cmake
+  --help-policy CMP0077" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+  For compatibility with older versions of CMake, option is clearing the
+  normal variable 'BUILD_TESTING'.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Could NOT find Boost (missing: Boost_INCLUDE_DIR chrono unit_test_framework system) 
+-- Specify BOOST_ROOT (and possibly BOOST_LIBRARYDIR) to build unit tests and benchmarks.
+-- Configuring done (2.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspaces/spotify-search/build
+
+/spotify-search/build (main) $ cmake --build .
+[  3%] Building CXX object spotify-json/vendor/double-conversion/CMakeFiles/double-conversion.dir/double-conversion/bignum.cc.o
+[  6%] Building CXX object spotify-json/vendor/double-conversion/CMakeFiles/double-conversion.dir/double-conversion/bignum-dtoa.cc.o
+[  9%] Building CXX object spotify-json/vendor/double-conversion/CMakeFiles/double-conversion.dir/double-conversion/cached-powers.cc.o
+[ 12%] Building CXX object spotify-json/vendor/double-conversion/CMakeFiles/double-conversion.dir/double-conversion/double-to-string.cc.o
+[ 15%] Building CXX object spotify-json/vendor/double-conversion/CMakeFiles/double-conversion.dir/double-conversion/fast-dtoa.cc.o
+[ 18%] Building CXX object spotify-json/vendor/double-conversion/CMakeFiles/double-conversion.dir/double-conversion/fixed-dtoa.cc.o
+[ 21%] Building CXX object spotify-json/vendor/double-conversion/CMakeFiles/double-conversion.dir/double-conversion/string-to-double.cc.o
+[ 25%] Building CXX object spotify-json/vendor/double-conversion/CMakeFiles/double-conversion.dir/double-conversion/strtod.cc.o
+[ 28%] Linking CXX static library libdouble-conversion.a
+[ 28%] Built target double-conversion
+[ 31%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/decode_context.cpp.o
+[ 34%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/decode_exception.cpp.o
+[ 37%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/encode_context.cpp.o
+[ 40%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/encode_exception.cpp.o
+[ 43%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/encoded_value.cpp.o
+[ 46%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/codec/any_value.cpp.o
+[ 50%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/codec/boolean.cpp.o
+[ 53%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/codec/number.cpp.o
+[ 56%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/codec/object.cpp.o
+[ 59%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/codec/string.cpp.o
+[ 62%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/detail/bitset.cpp.o
+[ 65%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/detail/decode_helpers.cpp.o
+[ 68%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/detail/encode_helpers.cpp.o
+[ 71%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/detail/encode_integer.cpp.o
+[ 75%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/detail/escape.cpp.o
+[ 78%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/detail/field_registry.cpp.o
+[ 81%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/detail/skip_chars.cpp.o
+[ 84%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/detail/skip_value.cpp.o
+[ 87%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/detail/escape_sse42.cpp.o
+[ 90%] Building CXX object spotify-json/CMakeFiles/spotify-json.dir/src/detail/skip_chars_sse42.cpp.o
+[ 93%] Linking CXX static library libspotify-json.a
+[ 93%] Built target spotify-json
+[ 96%] Building CXX object CMakeFiles/project_name.dir/src/main.cpp.o
+/workspaces/spotify-search/src/main.cpp: In function ‘int main()’:
+/workspaces/spotify-search/src/main.cpp:33:32: error: ‘value’ is not a member of ‘spotify::json’
+   33 |                 spotify::json::value json = spotify::json::parse_string(response);
+      |                                ^~~~~
+/workspaces/spotify-search/src/main.cpp:37:38: error: ‘json’ was not declared in this scope; did you mean ‘spotify::json’?
+   37 |                 const auto& tracks = json["tracks"]["items"];
+      |                                      ^~~~
+      |                                      spotify::json
+In file included from /workspaces/spotify-search/spotify-json/include/spotify/json/decode_context.hpp:20,
+                 from /workspaces/spotify-search/spotify-json/include/spotify/json/codec/any_codec.hpp:21,
+                 from /workspaces/spotify-search/spotify-json/include/spotify/json/codec/codec.hpp:19,
+                 from /workspaces/spotify-search/spotify-json/include/spotify/json/codec.hpp:19,
+                 from /workspaces/spotify-search/spotify-json/include/spotify/json/json.hpp:19,
+                 from /workspaces/spotify-search/spotify-json/include/spotify/json.hpp:19,
+                 from /workspaces/spotify-search/src/main.cpp:4:
+/workspaces/spotify-search/spotify-json/include/spotify/json/decode_exception.hpp:26:11: note: ‘spotify::json’ declared here
+   26 | namespace json {
+      |           ^~~~
+/workspaces/spotify-search/src/main.cpp:40:74: error: expected primary-expression before ‘>’ token
+   40 |                     std::string trackName = track["name"].get<std::string>();
+      |                                                                          ^
+/workspaces/spotify-search/src/main.cpp:40:76: error: expected primary-expression before ‘)’ token
+   40 |                     std::string trackName = track["name"].get<std::string>();
+      |                                                                            ^
+/workspaces/spotify-search/src/main.cpp:41:89: error: expected primary-expression before ‘>’ token
+   41 |                     std::string artistName = track["artists"][0]["name"].get<std::string>();
+      |                                                                                         ^
+/workspaces/spotify-search/src/main.cpp:41:91: error: expected primary-expression before ‘)’ token
+   41 |                     std::string artistName = track["artists"][0]["name"].get<std::string>();
+      |                                                                                           ^
+make[2]: *** [CMakeFiles/project_name.dir/build.make:76: CMakeFiles/project_name.dir/src/main.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:118: CMakeFiles/project_name.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2
+

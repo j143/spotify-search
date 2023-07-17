@@ -1,0 +1,4 @@
+[submodule "spotify-json"]
+	path = spotify-json
+	url = https://github.com/spotify/spotify-json
+	branch = master
